@@ -21,16 +21,14 @@ elif max2 <= a3:
 else:
     max3 = a3
 
-if max3 <= a4:
-    if max2 <= a4:
-        if max1 <= a4:
-            max3 = max2
-            max2 = max1
-            max1 = a4
-        else:
-            max3 = max2
-            max2 = a4
-    else:
-        max3 = a4
+if max1 <= a4:
+    max3 = max2
+    max2 = max1
+    max1 = a4
+elif max2 <= a4:
+    max3 = max2
+    max2 = a4
+elif max3 <= a4:
+    max3 = a4
 
 print("3rd max value is: ", max3)
