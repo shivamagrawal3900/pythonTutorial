@@ -10,5 +10,7 @@ for i in range(len(l1) - 1):
         if current_sequence > max_sequence:
             max_sequence = current_sequence
         current_sequence = 1
-
+else:
+    if current_sequence > max_sequence:
+        max_sequence = current_sequence
 print("Max sequence is: ", max_sequence)
