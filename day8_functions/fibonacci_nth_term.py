@@ -3,11 +3,13 @@ def get_fibonacci_n(n):
 
 
 def fibonacci_n_helper(n, i=1, a=0, b=1):
-    if n <= i:
-        print(a)
-        return a
-    print(a, end=" ")
-    return fibonacci_n_helper(n, i + 1, b, a + b)
+    return a if n <= i else fibonacci_n_helper(n, i + 1, b, a + b)
+
+    # if n <= i:
+    #     print(a)
+    #     return a
+    # print(a, end=" ")
+    # return fibonacci_n_helper(n, i + 1, b, a + b)
 
 
 n1 = int(input("Enter a number: "))
