@@ -3,7 +3,10 @@
 # a = "Bodaciou"
 # print(a[::-2])
 
-mylist = [10, 20]
-s1 = frozenset(mylist )
-print(s1)
-print(type(s1))
+# mylist = [10, 20]
+# s1 = frozenset(mylist )
+# print(s1)
+# print(type(s1))
+
+
+print(9^6)
