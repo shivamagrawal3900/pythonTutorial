@@ -3,10 +3,10 @@ from day14_exceptions.invalid_amount_exception import InvalidAmountException
 
 class Money:
     def __init__(self, rupee: int = 0, paisa: int = 0):
+        if rupee < 0 or paisa < 0:
+            raise InvalidAmountException(rupee, paisa)
         self.rupee = rupee
         self.paisa = paisa
-        if self.rupee < 0 or self.paisa < 0:
-            raise InvalidAmountException(self)
 
     def _get_in_paisa(self):
         return self.rupee * 100 + self.paisa
@@ -74,6 +74,8 @@ class Money:
     def __sub__(self, other):
         m1 = self._get_in_paisa()
         m2 = other._get_in_paisa()
+        if m1 < m2:
+            raise ArithmeticError("Can't subtract bigger amount from smaller amount")
         return Money._get_money(paisa=m1 - m2)
 
     def __iadd__(self, other):
@@ -84,10 +86,12 @@ class Money:
     def __isub__(self, other):
         m1 = self._get_in_paisa()
         m2 = other._get_in_paisa()
+        if m1 < m2:
+            raise ArithmeticError("Can't subtract bigger amount from smaller amount")
         return Money._get_money(paisa=m1 - m2)
 
 
-m1 = Money(50, 60)
+m1 = Money(20, 60)
 m2 = Money(30, 80)
 print(f"m1 = {m1}")
 print(f"m2 = {m2}")
