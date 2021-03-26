@@ -137,26 +137,113 @@
 # a = A()
 # a.one()
 
-class OpOverload:
-    one = 1
+# class OpOverload:
+#     one = 1
+#
+#     def __idiv__(self, other):
+#         print("idiv")
+#         return 100
+#
+#     def __itruediv__(self, other):
+#         print("itruediv")
+#         self.this_is_method()
+#         return 1000
+#
+#     @staticmethod
+#     def this_is_method():
+#         OpOverload.one += 1
+# o1 = OpOverload()
+# o2 = OpOverload()
+# # o1 /= o2
+#
+# print(o1.one)
+# o1.this_is_method()
+# OpOverload.this_is_method()
+# print(OpOverload.one)
+# from abc import ABC, abstractmethod
+#
+#
+# class A(ABC):
+#     def __init__(self):
+#         super().__init__()
+#         print("in A constructor")
+#         self.a = 5
+#     def one(self):
+#         print("one no arg")
+#
+#     @abstractmethod
+#     def two(self):
+#         pass
+#
+#
+# class C:
+#     def __init__(self):
+#         super().__init__()
+#         print("in C constructor")
+#         self.c = 50
+#     def one(self):
+#         print("one no arg")
+#
+#     def two(self):
+#         print("in two")
+#
+# class B(C, A):
+#     def __init__(self):
+#         super().__init__()
+#         print("in B constructor")
+#         self.b = 10
+#
+#     def one(self):
+#         self.c = 100
+#         print("one args")
+#
+#
+#
+# b = B()
+# b.one()
+# b.two()
+# print(issubclass(B, (C,B)))
+# print(b.d)
 
-    def __idiv__(self, other):
-        print("idiv")
-        return 100
+# import traceback
+#
+# def throw_error():
+#     raise ValueError("Value error from function")
+#
+# try:
+#     print("Inside try")
+#     print(traceback.format_exc())
+#     throw_error()
+# except (TypeError, ValueError) as a:
+#     traceback.print_exc()
+#     print(traceback.format_exc())
+#     print("inside except", a)
+#
+# finally:
+#     print("in finally")
+# print("and code goes on..")
 
-    def __itruediv__(self, other):
-        print("itruediv")
-        self.this_is_method()
-        return 1000
+# of = open("resources/a.txt", "r+")
+# print(of.read())
+# print(of.read())
+# of.seek(5)
+# print(of.read())
+# of.seek(7)
+# print(of.read())
+# print(of.mode)
+# # print(of.write(" more new text added"))
+# print(of.name)
+# print(of.closed)
+# of.close()
+# import os
+#
+# # os.mkdir("resources/one")
+# print(os.path.exists("resources/a.txt"))
+# print(os.path.isfile("resources/a.txt"))
+# print(os.path.isfile("resources/c.txt"))
+# print(os.path.exists("resources/one"))
+# print(os.path.isdir("resources/one"))
+# print(os.path.isdir("resources/two"))
+import shutil
 
-    @staticmethod
-    def this_is_method():
-        OpOverload.one += 1
-o1 = OpOverload()
-o2 = OpOverload()
-# o1 /= o2
-
-print(o1.one)
-o1.this_is_method()
-OpOverload.this_is_method()
-print(OpOverload.one)
+shutil.unpack_archive()
