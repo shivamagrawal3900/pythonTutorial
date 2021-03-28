@@ -244,6 +244,35 @@
 # print(os.path.exists("resources/one"))
 # print(os.path.isdir("resources/one"))
 # print(os.path.isdir("resources/two"))
-import shutil
 
-shutil.unpack_archive()
+# import shutil
+#
+# shutil.unpack_archive()
+
+
+class A:
+    def func(self):
+        print("in class A")
+        # super().func()
+class AA:
+    def func(self):
+        print("in class AA")
+        super().func()
+class B(AA, A):
+    def func(self):
+        print("in class B")
+        super().func()
+class C(AA, A):
+    def func(self):
+        print("in class C")
+        super().func()
+class D(B,C):
+    def func(self):
+        print("in class D")
+        super().func()
+
+
+d = D()
+d.func()
+print(D.__bases__)
+print(D.__mro__)
