@@ -223,7 +223,7 @@
 #     print("in finally")
 # print("and code goes on..")
 
-# of = open("resources/a.txt", "r+")
+# of = open("resource/a.txt", "r+")
 # print(of.read())
 # print(of.read())
 # of.seek(5)
@@ -237,13 +237,13 @@
 # of.close()
 # import os
 #
-# # os.mkdir("resources/one")
-# print(os.path.exists("resources/a.txt"))
-# print(os.path.isfile("resources/a.txt"))
-# print(os.path.isfile("resources/c.txt"))
-# print(os.path.exists("resources/one"))
-# print(os.path.isdir("resources/one"))
-# print(os.path.isdir("resources/two"))
+# # os.mkdir("resource/one")
+# print(os.path.exists("resource/a.txt"))
+# print(os.path.isfile("resource/a.txt"))
+# print(os.path.isfile("resource/c.txt"))
+# print(os.path.exists("resource/one"))
+# print(os.path.isdir("resource/one"))
+# print(os.path.isdir("resource/two"))
 
 # import shutil
 #
