@@ -1,5 +1,7 @@
 import datetime
 
+from django.conf import settings
+from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -70,6 +72,7 @@ def last_login_cookie(request):
     response.set_cookie("last_login", datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
     return response
 
+
 def login_session(request):
     if request.session.has_key("user"):
         name = request.session["user"]
@@ -78,9 +81,25 @@ def login_session(request):
     else:
         return render(request, "login.html", {})
 
+
 def session_saved(request):
     name = request.GET.get("txtname")
     city = request.GET.get("txtcity")
     request.session["user"] = name
     request.session["city"] = city
     return HttpResponse(f"<h2>Hi {name} from {city}, your session have been created!!</h2>")
+
+
+# will need to set email_id and email_password in env variables for code to run
+def create_mail(request):
+    return render(request, "send_mail.html", {})
+
+
+def send_email(request):
+    subject = request.GET.get("txtsubject")
+    message = request.GET.get("txtmessage")
+    from_emil = settings.EMAIL_HOST_USER
+    to = request.GET.get("txtto")
+    recipient_list = [to]
+    send_mail(subject=subject, message=message, from_email=from_emil, recipient_list=recipient_list)
+    return HttpResponse(f"<h2>Mail Sent to {to}</h2>")

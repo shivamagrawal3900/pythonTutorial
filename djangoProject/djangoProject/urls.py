@@ -21,13 +21,23 @@ from djangoProject import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
+    # simple html page
     path('about', views.about, name="about"),
+    # read and display file
     path('show_one', views.show_one, name="show_one"),
+    # show form and process it
     path('form', views.form, name="form"),
     path('process', views.confirm, name="process"),
+    # write file
     path('input', views.input_file, name="input_file"),
     path('write', views.write_file, name="write_file"),
+    # cookies
     path('last_login_cookie', views.last_login_cookie, name="last_login_cookie"),
+    # session
     path('login_session', views.login_session, name="login_session"),
     path('session_saved', views.session_saved, name="session_saved"),
+    # send mail
+    # will need to set email_id and email_password in env variables for code to run
+    path('create_mail', views.create_mail, name="create_mail"),
+    path('send_email', views.send_email, name="send_email"),
 ]
