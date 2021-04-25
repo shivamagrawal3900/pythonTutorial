@@ -27,4 +27,7 @@ urlpatterns = [
     path('process', views.confirm, name="process"),
     path('input', views.input_file, name="input_file"),
     path('write', views.write_file, name="write_file"),
+    path('last_login_cookie', views.last_login_cookie, name="last_login_cookie"),
+    path('login_session', views.login_session, name="login_session"),
+    path('session_saved', views.session_saved, name="session_saved"),
 ]

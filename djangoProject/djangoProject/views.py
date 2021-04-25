@@ -1,3 +1,5 @@
+import datetime
+
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -57,3 +59,28 @@ def write_file(request):
     with open(fpath, "w") as f1:
         f1.write(fcontent)
     return HttpResponse(f"<h2>{fname} written successfully...</h2>")
+
+
+def last_login_cookie(request):
+    if request.COOKIES.get("last_login"):
+        last_login = request.COOKIES.get("last_login")
+        response = HttpResponse(f"<h2>Your last login was at {last_login}.</h2>")
+    else:
+        response = HttpResponse(f"<h2>This is your first login.</h2>")
+    response.set_cookie("last_login", datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+    return response
+
+def login_session(request):
+    if request.session.has_key("user"):
+        name = request.session["user"]
+        city = request.session["city"]
+        return HttpResponse(f"<h2>Hi {name} from {city}, welcome back</h2>")
+    else:
+        return render(request, "login.html", {})
+
+def session_saved(request):
+    name = request.GET.get("txtname")
+    city = request.GET.get("txtcity")
+    request.session["user"] = name
+    request.session["city"] = city
+    return HttpResponse(f"<h2>Hi {name} from {city}, your session have been created!!</h2>")
