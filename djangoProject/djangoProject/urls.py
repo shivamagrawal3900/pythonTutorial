@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from djangoProject import views
 
@@ -40,4 +40,6 @@ urlpatterns = [
     # will need to set email_id and email_password in env variables for code to run
     path('create_mail', views.create_mail, name="create_mail"),
     path('send_email', views.send_email, name="send_email"),
+    # app1 redirect
+    path('app1/', include("app1.urls"), name="app1"),
 ]

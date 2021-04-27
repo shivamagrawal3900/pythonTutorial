@@ -32,8 +32,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ['email_id']
-EMAIL_HOST_PASSWORD = os.environ['email_password']
+EMAIL_HOST_USER = os.environ['email_id'] if 'email_id' in os.environ else ""
+EMAIL_HOST_PASSWORD = os.environ['email_password'] if 'email_password' in os.environ else ""
 
 # Application definition
 
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app1',
 ]
 
 MIDDLEWARE = [
