@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+</head>
+<body bgcolor="#faebd7">
+<form action="{% url 'user' %}" method="post">
+    {{ form.as_p }}<br>
+    <button type="submit">Save User</button>
+</form>
+</body>
+</html>
